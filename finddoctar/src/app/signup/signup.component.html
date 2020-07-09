@@ -1,0 +1,37 @@
+<div class="container" style="font-size: xx-large;" >
+    <form class="text-center border border-light p-5" #signupForm='ngForm' >
+
+        <p class="h4 mb-4" style="font-size: larger;">Sign up</p>
+    
+        <div class="form-row mb-4">
+            <div class="col">
+                <small class="form-text text-muted mb-4 text-danger" *ngIf="fname.invalid && fname.touched" >Frist name is required</small>
+                <input type="text" #fname='ngModel' name="fname" class="form-control" placeholder="First name" style="font-size: larger;" [(ngModel)]="user.fname" required>
+            </div>
+            <div class="col">
+                <small class="form-text text-muted mb-4 text-danger" *ngIf="lname.invalid && lname.touched" >Last name is required</small>
+                <input type="text" #lname='ngModel' name="lname" class="form-control" placeholder="Last name" style="font-size: larger;" [(ngModel)]="user.lname" required>
+            </div>
+        </div>
+        <small class="form-text text-muted mb-4 text-danger" *ngIf="email.invalid && email.touched" >Enter valid email</small>
+        <input type="email" #email='ngModel' name="email" class="form-control mb-4" placeholder="E-mail" style="font-size: larger;" [(ngModel)]="user.email" required pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$">
+    
+        <input type="password" #password='ngModel' name="password" class="form-control" placeholder="Password"  style="font-size: larger;" [(ngModel)]="user.password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$">
+        <small  class="form-text text-muted mb-4 " [class.text-danger]="password.invalid && password.touched">
+            At least 8 characters ,one number,one letter should include
+        </small>
+    
+        <small class="form-text text-muted mb-4 text-danger" *ngIf="confpassword.invalid && confpassword.touched" >ReEnter your password</small>
+        <input #confpassword='ngModel' type="password" name="repassword" class="form-control" placeholder="Re Enter Password"  style="font-size: larger;" [(ngModel)]="repassword" required >
+    
+        <button class="btn btn-info my-4 btn-block" type="submit" style="font-size: larger;" [disabled]="signupForm.form.invalid" (click)="formSubmit()">Sign up</button>
+    
+        <p>By clicking
+            <em>Sign up</em> you agree to our
+            <a href="" target="_blank">terms of service</a>
+    
+    </form>
+    <br>
+    <br>
+    <br>
+</div>

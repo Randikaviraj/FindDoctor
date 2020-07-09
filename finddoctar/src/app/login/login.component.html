@@ -1,0 +1,43 @@
+
+<div class="container" style="font-size: larger;" >
+    <form class="text-center border border-light p-5" #loginForm='ngForm'>
+
+        <p class="h4 mb-4" style="font-size:xx-large;">Log In</p>
+        
+        <small class="form-text text-muted mb-4 text-danger" *ngIf="loginemail.invalid && loginemail.touched" >Enter valid email</small>
+        <input type="email" #loginemail='ngModel' name="loginemail" class="form-control mb-4" placeholder="E-mail" style="font-size: larger;" [(ngModel)]="user.email" required pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$">
+    
+        <small class="form-text text-muted mb-4 text-danger" *ngIf="loginpassword.invalid && loginpassword.touched" >Enter password here</small>
+        <input type="password" #loginpassword='ngModel' name="loginpassword" class="form-control mb-4" placeholder="Password" style="font-size: larger;" [(ngModel)]="user.password" required >
+    
+        <div class="d-flex justify-content-around">
+            <div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="loginRemember">
+                    <label class="custom-control-label" for="loginRemember">Remember me</label>
+                </div>
+            </div>
+            <div>
+                <a routerLink="/forgetpassward">Forgot password?</a>
+            </div>
+        </div>
+    
+        <button class="btn btn-info btn-block my-4" type="submit" style="font-size: larger;" [disabled]="loginForm.form.invalid" (click)="loginformSubmit()">Log in</button>
+    
+        <p>Not a member?
+            <a routerLink="/signup">Register</a>
+        </p>
+    </form>
+    <br>
+    <br>
+    <br>
+    
+</div>
+
+
+
+
+
+
+
+

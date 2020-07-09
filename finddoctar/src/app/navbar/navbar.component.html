@@ -1,0 +1,66 @@
+<header class="" >
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="#"><h2>Find <em>Doctor</em></h2></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item" [class.active]="main" (click)="mainclick()" *ngIf="getStatus()">
+            <a class="nav-link" routerLink="/main">Home</a>
+          </li>
+          <li class="nav-item " [class.active]="signup" *ngIf="getStatus()">
+            <a class="nav-link" routerLink="/signup" (click)="signupclick()">SignUp
+              <span class="sr-only">(current)</span>
+            </a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link" [class.active]="login" routerLink="/login" (click)="loginclick()">{{getValue()}}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [class.active]="about" routerLink="/about" (click)="aboutclick()">About Us</a>
+          </li>
+  
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+<div class="banner header-text" *ngIf="parentData;else elseBlock">
+  <div class="owl-banner owl-carousel" [ngSwitch]="block" (click)="changeBackground()">
+    <div class="banner-item-01" *ngSwitchCase="1">
+      <div class="text-content">
+        <h4>click me</h4>
+        <h2>Doctors...</h2>
+      </div>
+    </div>
+    <div class="banner-item-02" *ngSwitchCase="2">
+      <div class="text-content">
+        <h4>click me</h4>
+        <h2 style="color: rgba(219, 21, 87, 0.555);">Hospitals...</h2>
+      </div>
+    </div>
+    <div class="banner-item-03" *ngSwitchCase="3">
+      <div class="text-content">
+        <h4>click me</h4>
+        <h2>We bring to your home..</h2>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div #elseBlock>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</div>
